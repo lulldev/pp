@@ -4,9 +4,9 @@
 void ShowHelp()
 {
 	std::cout << "The programs takes two arguments:\n"
-		<< "first param: <iterations> - number of iterations (points). Should be positive\n"
-		<< "second param: <threads> - number of threads. Should be from 1 to 64\n" << 
-		"----------------------------------" <<std::endl;
+			  << "first param: <iterations> - number of iterations (points). Should be positive\n"
+			  << "second param: <threads> - number of threads. Should be from 1 to 64\n" <<
+			  "----------------------------------" <<std::endl;
 }
 
 int main(int argc, char* argv[])
@@ -25,7 +25,7 @@ int main(int argc, char* argv[])
 			int numberOfIterations = std::stoi(argv[1]);
 			int numberOfThreads = std::stoi(argv[2]);
 
-			if (0 >= numberOfIterations || 1 > numberOfThreads 
+			if (0 >= numberOfIterations || 1 > numberOfThreads
 				|| numberOfThreads > 64)
 			{
 				throw std::invalid_argument("Invalid values");
@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
 			calculator.Calculate();
 			std::cout << calculator.GetCalculatedPi() << std::endl
 					  << "Time: " << clock() - startTime << " ms" << std::endl;
-		} 
+		}
 		else
 		{
 			throw std::invalid_argument("Invalid number of arguments");
