@@ -1,8 +1,0 @@
-﻿  stdafx.cpp
-  CalculatePi.cpp
-  PiCalculator.cpp
-c:\users\admin\documents\temp\pp\lw1\afanasev_denis\calculatepi\calculatepi\picalculator.cpp(15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  ThreadsController.cpp
-c:\users\admin\documents\temp\pp\lw1\afanasev_denis\calculatepi\calculatepi\threadscontroller.cpp(6): warning C4267: 'argument': conversion from 'size_t' to 'DWORD', possible loss of data
-  Generating Code...
-  CalculatePi.vcxproj -> C:\Users\admin\Documents\temp\pp\lw1\Afanasev_Denis\CalculatePi\x64\Debug\CalculatePi.exe
