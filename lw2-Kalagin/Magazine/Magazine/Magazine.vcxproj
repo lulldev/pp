@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{3AD25C3C-BC5A-43F5-903E-60F49F6E47D6}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Hospital</RootNamespace>
+    <RootNamespace>Magazine</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
     <ProjectName>Magazine</ProjectName>
   </PropertyGroup>
