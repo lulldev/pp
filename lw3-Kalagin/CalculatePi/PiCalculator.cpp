@@ -19,7 +19,7 @@ void CPiCalculator::Calculate()
 	#pragma omp parallel for
 	for (int i = 0; i < m_numberOfIterations; ++i)
 	{
-		if (IsInnerPoint(GetNextPoint()))
+		if (IsPointInside(GetNextPoint()))
 		{
 			#pragma omp atomic
 			++m_numberOfInnerPoint;
@@ -39,7 +39,7 @@ double CPiCalculator::GetNormalizedRandomNumber()
 
 Point CPiCalculator::GetNextPoint()
 {
-	return Point(GetNirmalizedRandomNumber(), GetNirmalizedRandomNumber());
+	return Point(GetNormalizedRandomNumber(), GetNormalizedRandomNumber());
 }
 
 bool CPiCalculator::IsPointInside(const Point& point)
