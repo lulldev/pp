@@ -32,15 +32,15 @@ DWORD WINAPI ThreadProc(LPVOID param)
 
 	if (rnd <= 3)
 	{
-		data->m_shop1->Treat(customer);
+		data->m_shop1->Serve(customer);
 	}
 	else if (rnd > 3 && rnd <= 6) 
 	{
-		data->m_shop2->Treat(customer);
+		data->m_shop2->Serve(customer);
 	}
 	else if (rnd > 6 && rnd <= 10) 
 	{
-		data->m_shop3->Treat(customer);
+		data->m_shop3->Serve(customer);
 	}
 
 	return 0;

@@ -9,7 +9,7 @@ Shop::Shop(std::string shopName)
 {
 }
 
-void Shop::Treat(Customer &customer)
+void Shop::Serve(Customer &customer)
 {
 	std::printf("Customer #%zd went to the queue to the: %s\n", customer.GetCustomerID(), m_shopName.c_str());
 	m_mutex->Join();

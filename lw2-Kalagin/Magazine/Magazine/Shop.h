@@ -7,7 +7,7 @@ class Shop
 public:
 	Shop(std::string shopName);
 	~Shop();
-	void Treat(Customer &customer);
+	void Serve(Customer &customer);
 	std::string GetShopName();
 private:
 	std::string m_shopName;
