@@ -28,15 +28,19 @@ DWORD WINAPI DrizzleThreadProc(LPVOID param)
 	std::mt19937 randomEngine(randomDevice());
 	std:uniform_int_distribution<> distribution;
 
-	const int rnd = distribution(randomEngine) % 2;
+	while (true) {
+		const int rndGardener = distribution(randomEngine) % 2;
+		const int rndFlowerPosition = distribution(randomEngine) % data
+			->m_flowerBed->GetFlowersCount();
 
-	if (rnd % 2 == 0)
-	{
-		data->m_flowerBed->DrizzleFlower(0, data->m_gardener_1);
-	}
-	else
-	{
-		data->m_flowerBed->DrizzleFlower(0, data->m_gardener_2);
+		if (rndGardener % 2 == 0)
+		{
+			data->m_flowerBed->DrizzleFlower(rndFlowerPosition, data->m_gardener_1);
+		}
+		else
+		{
+			data->m_flowerBed->DrizzleFlower(rndFlowerPosition, data->m_gardener_2);
+		}
 	}
 
 	return 0;
