@@ -4,8 +4,7 @@ class Gardener
 public:
 	Gardener(size_t gardenerNo);
 	~Gardener();
+	size_t GetGardenerNo();
 private:
 	size_t m_gardenerNo;
-	std::unique_ptr<Mutex> m_mutex;
 };
-
