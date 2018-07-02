@@ -20,7 +20,7 @@ struct ThreadData {
 };
 
 
-DWORD WINAPI DrizzleThreadProc(LPVOID param) 
+DWORD WINAPI Gardener1ThreadProc(LPVOID param) 
 {
 	ThreadData *data = (ThreadData *)param;
 
@@ -32,15 +32,25 @@ DWORD WINAPI DrizzleThreadProc(LPVOID param)
 		const int rndGardener = distribution(randomEngine) % 2;
 		const int rndFlowerPosition = distribution(randomEngine) % data
 			->m_flowerBed->GetFlowersCount();
+		data->m_flowerBed->DrizzleFlower(rndFlowerPosition, data->m_gardener_1);
+	}
 
-		if (rndGardener % 2 == 0)
-		{
-			data->m_flowerBed->DrizzleFlower(rndFlowerPosition, data->m_gardener_1);
-		}
-		else
-		{
-			data->m_flowerBed->DrizzleFlower(rndFlowerPosition, data->m_gardener_2);
-		}
+	return 0;
+}
+
+DWORD WINAPI Gardener2ThreadProc(LPVOID param)
+{
+	ThreadData *data = (ThreadData *)param;
+
+	std::random_device randomDevice;
+	std::mt19937 randomEngine(randomDevice());
+std:uniform_int_distribution<> distribution;
+
+	while (true) {
+		const int rndGardener = distribution(randomEngine) % 2;
+		const int rndFlowerPosition = distribution(randomEngine) % data
+			->m_flowerBed->GetFlowersCount();
+		data->m_flowerBed->DrizzleFlower(rndFlowerPosition, data->m_gardener_2);
 	}
 
 	return 0;
@@ -59,6 +69,7 @@ DWORD WINAPI FlowerThreadProc(LPVOID param)
 			->m_flowerBed->GetFlowersCount();
 
 		data->m_flowerBed->WitherFlower(rndFlowerPosition);
+		Sleep(6000);
 	}
 
 	return 0;
@@ -85,10 +96,8 @@ int main(int argc, char* argv[])
 	ThreadHandler threadHandler;
 	ThreadData threadData(flowersCount);
 
-	for (size_t i = 0; i < flowersCount; ++i) {
-		threadHandler.PushThread(DrizzleThreadProc, &threadData);
-	}
-
+	threadHandler.PushThread(Gardener1ThreadProc, &threadData);
+	threadHandler.PushThread(Gardener2ThreadProc, &threadData);
 	threadHandler.PushThread(FlowerThreadProc, &threadData);
 
 	threadHandler.JoinAll();

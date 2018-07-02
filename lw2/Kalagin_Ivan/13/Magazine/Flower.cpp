@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Flower.h"
 
-Flower::Flower() : m_isWither(false)
+Flower::Flower() : m_isWither(true)
 {
 }
 
