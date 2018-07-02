@@ -9,7 +9,7 @@ public:
 	FlowerBed(size_t flowerCount);
 	~FlowerBed();
 	size_t GetFlowersCount();
-	void DrizzleFlower(size_t flowerPosition, std::unique_ptr<Gardener>& gardener);
+	void DrizzleFlower(size_t flowerPosition, std::shared_ptr<Gardener> gardener);
 	void WitherFlower(size_t flowerPosition);
 	bool IsAllFlowersDrezzled();
 private:

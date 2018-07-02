@@ -16,7 +16,7 @@ size_t FlowerBed::GetFlowersCount() {
 	return m_flowers.size();
 }
 
-void FlowerBed::DrizzleFlower(size_t flowerPosition, std::unique_ptr<Gardener>& gardener)
+void FlowerBed::DrizzleFlower(size_t flowerPosition, std::shared_ptr<Gardener> gardener)
 {
 
 	if (IsAllFlowersDrezzled()) 
